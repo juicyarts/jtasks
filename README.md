@@ -106,4 +106,4 @@ Das ganze versuche ich auch noch zu automatisieren.
 
 ---
 
-## [Weiter gehts mit den Tasks](docs/documentation/tutorials/tasks)
+## [Weiter gehts mit den Tasks](docs/documentation/tutorials/tasks.md)
