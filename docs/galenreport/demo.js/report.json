@@ -1,0 +1,18 @@
+{
+  "tests" : [ {
+    "name" : "Heimspie Website",
+    "startedAt" : 1480622734790,
+    "endedAt" : 1480622741274,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 1,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 1
+    },
+    "testId" : "1-heimspie-website",
+    "groups" : [ ],
+    "failed" : false,
+    "duration" : 6484
+  } ]
+}

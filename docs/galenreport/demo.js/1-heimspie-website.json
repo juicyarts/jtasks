@@ -1,0 +1,40 @@
+{
+  "testId" : "1-heimspie-website",
+  "name" : "Heimspie Website",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Check layout: test/e2e/galen/specs/heimspiel.gspec included tags: ",
+      "status" : "info",
+      "time" : 1480622741014,
+      "sections" : [ {
+        "name" : "Basic test",
+        "place" : {
+          "filePath" : "test/e2e/galen/specs/heimspiel.gspec",
+          "lineNumber" : 5
+        },
+        "objects" : [ {
+          "name" : "wrapper",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "test/e2e/galen/specs/heimspiel.gspec",
+              "lineNumber" : 7
+            },
+            "name" : "contains frame",
+            "highlight" : [ "wrapper", "frame" ]
+          } ]
+        } ]
+      } ],
+      "objects" : {
+        "wrapper" : {
+          "area" : [ 0, 0, 640, 505 ]
+        },
+        "frame" : {
+          "area" : [ 0, 0, 640, 505 ]
+        }
+      },
+      "screenshot" : "layout-1-screenshot.png",
+      "type" : "layout"
+    } ]
+  }
+}

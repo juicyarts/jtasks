@@ -1,0 +1,1304 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for common/fsInheritanceLib.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">common/</a> fsInheritanceLib.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.1% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>97/102</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.61% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>38/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.96% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>96/98</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">126×</span>
+<span class="cline-any cline-yes">125×</span>
+<span class="cline-any cline-yes">183×</span>
+<span class="cline-any cline-yes">182×</span>
+<span class="cline-any cline-yes">59×</span>
+<span class="cline-any cline-yes">59×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">123×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">77×</span>
+<span class="cline-any cline-yes">76×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">104×</span>
+<span class="cline-any cline-yes">104×</span>
+<span class="cline-any cline-yes">104×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">104×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">104×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">103×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var fs = require('fs')
+var path = require('path')
+var glob = require('glob')
+&nbsp;
+/**
+ * @module fsInheritanceLib
+ * @description
+ * This Module collects files by given patterns and can create.
+ * Arrays or even Files contianing found files.
+ * You can Also pass Inheritance paths to find a file.
+ */
+module.exports = {
+  findSingleFile: findSingleFile,
+  findSinglePath: findSinglePath,
+  findFiles: findFiles,
+  findPaths: findPaths,
+  findGlobPatterns: findGlobPatterns,
+  findGlobPath: findGlobPath,
+  writeAssetLibrary: writeAssetLibrary,
+  mkLib: mkLib
+}
+&nbsp;
+/**
+ * @description
+ * Takes inherit array and single file to search for the file in given inheritance.
+ * It then selects the first appearance and returns an object containong origin and path of file found
+ * @param {Object} cfg config
+ * @param {String} file filename
+ * @returns {Object} containing origin and path
+ * @example
+var fsIn = require('fs-inheritance-lib')
+var config = {
+  inheritFrom: ['../parent', '../neighbour', '../../ancestor'],
+  root: 'foo/bar/src'
+}
+var files = 'file.js'
+var result = fsIn.findSingleFile(cfg, files)
+// returns an object like this, depending on where the file was found.
+// local means found in current working directory.
+console.log(result)
+// {
+//  origin: 'local',
+//  path: 'foo/bar/src/file.js'
+// }
+// or
+// {
+//  origin: 'neighbour',
+//  path: 'foo/bar/src/file.js'
+// }
+ */
+function findSingleFile (cfg, file) {
+  if (!cfg.inheritFrom || cfg.inheritFrom.length &lt;= 0) throw new ReferenceError('No paths given to inherit from given')
+  for (var i = 0; i &lt; cfg.inheritFrom.length; i++) {
+    var src = path.join(cfg.inheritFrom[i], cfg.root, file)
+    if (!fs.existsSync(src)) {
+      log(cfg, 'warn', file, 'doesnt exist in', cfg.root, 'of', cfg.inheritFrom[i])
+      continue
+    }
+    return src
+  }
+}
+&nbsp;
+/**
+ * @description
+ * This Function returns an array of matching paths for one given pattern
+ * @param {Object} cfg config
+ * @param {String} fpath path
+ * @returns {Array} containing found paths
+ * @example
+var fsIn = require('fs-inheritance-lib')
+var cfg = {
+  inheritFrom: ['../parent', '../neighbour', '../../ancestor'],
+  root: 'foo/bar/baz'
+}
+var paths = ['client-vars']
+var result = fsIn.findSingleFile(conig, paths[1])
+console.log(result)
+// [
+//  '../parent/foo/bar/baz/client-vars',
+//  '../neighbour/foo/bar/baz/client-vars'
+//  '../ancestor/foo/bar/baz/client-vars'
+// ]
+ */
+function findSinglePath (cfg, fpath) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cfg.inheritFrom || cfg.inheritFrom.length &lt;= 0) <span class="cstat-no" title="statement not covered" >t</span>hrow new ReferenceError('No paths given to inherit from given')
+  var results = []
+  for (var i = 0; i &lt; cfg.inheritFrom.length; i++) {
+    var src = path.join(cfg.inheritFrom[i], cfg.root ? cfg.root : '', fpath)
+    if (!fs.existsSync(src)) {
+      log(cfg, 'warn', fpath + ' doesnt exist in: ' + cfg.root + 'of' + cfg.inheritFrom[i])
+      continue
+    }
+    results.push(src)
+  }
+  return results
+}
+&nbsp;
+/**
+ * @description
+ * Needs a config and an array of files.
+ * The config must contain inheritFrom attribute with an array of folders to inherit from.
+ * The order of this array defines the priority of the folders to be searched in.
+ * First appearance in first inheritance is taken.
+ * @param {Object} cfg config
+ * @param {Array} files
+ * @returns {Array} of files found by given config
+ * @example
+var fsIn = require('fs-inheritance-lib')
+var config = {
+  inheritFrom: ['../parent', '../neighbour', '../../ancestor'],
+  root: 'foo/bar/src/'
+}
+var files = [
+  'file1.js',
+  'sub/sub1.js',
+  'file2.js',
+  'file3.js',
+  'file.js',
+  'file4.js'
+]
+var result = fsIn.findSingleFile(cfg, files)
+// returns an object like this, depending on where the file was found.
+// local means found in current working directory.
+console.log(result)
+// [
+//  '../../ancestor/foo/bar/src/file1.js',
+//  '../../ancestor/foo/bar/src/sub/sub1.js',
+//  '../parent/foo/bar/src/file2.js',
+//  '../neighbour/foo/bar/src/file3.js',
+//  'foo/bar/src/file.js',
+//  'foo/bar/src/file4.js'
+// ]
+ */
+function findFiles (cfg, files) {
+  var file = false
+  var result = []
+  var pat
+  for (var f = 0; f &lt; files.length; f++) {
+    if (cfg.getFileByRegEx || files[f].match(/\*/)) {
+      pat = findGlobPatterns(cfg, files[f])
+      result = result.concat(pat)
+      continue
+    }
+    file = findSingleFile(cfg, files[f])
+    // console.log(file, cfg, files[f])
+    if (cfg.removePatternFromFileName) {
+      file = file.replace(cfg.removePatternFromFileName, c</span>fg.replaceWith ? <span class="branch-0 cbranch-no" title="branch not covered" >cfg.replaceWith : '')
+      file = c</span>fg.replaceAppend ? <span class="branch-0 cbranch-no" title="branch not covered" >file + cfg.replaceAppend : file
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (cfg.removePath) {
+<span class="cstat-no" title="statement not covered" >      f</span>ile = file.split('/').pop()
+    }
+    result.push(file)
+  }
+  return removeDuplicates(result)
+}
+&nbsp;
+/**
+ * @description
+ * Needs a config and an array of paths.
+ * The config must contain inheritFrom attribute with an array of folders to inherit from.
+ * The order of this array defines the priority of the folders to be searched in.
+ * First appearance in first inheritance is taken.
+ * @param {Object} cfg config
+ * @param {Array} paths
+ * @returns {Array} of paths found
+ * @example
+var fsIn = require('fs-inheritance-lib')
+var config = {
+  inheritFrom: ['../parent', '../neighbour', '../../ancestor'],
+  root: 'foo/bar/src/'
+}
+var paths = [
+  'client-vars',
+  'fonts',
+  'framework',
+  'mixins',
+  'module',
+  'additional'
+]
+var result = fsIn.fsInheritanceLib.findPaths(config, paths)
+console.log(result)
+// [
+//  '../parent/foo/bar/src/client-vars',
+//  '../neighbour/foo/bar/src/client-vars',
+//  '../../ancestor/foo/bar/src/client-vars',
+//  '../../ancestor/foo/bar/src/fonts',
+//  '../../ancestor/foo/bar/src/framework',
+//  '../../ancestor/foo/bar/src/mixins',
+//  '../../ancestor/foo/bar/src/module',
+//  '../parent/foo/bar/src/additional',
+//  '../neighbour/foo/bar/src/additional'
+// ]
+ */
+function findPaths (cfg, paths) {
+  var result = ''
+  var results = []
+  for (var p = 0; p &lt; paths.length; p++) {
+    if (paths[p].match(/\*/)) {
+      results = findGlobPath(cfg, paths[p])
+    } else {
+      result = findSinglePath(cfg, paths[p])
+      results = results.concat(result)
+    }
+  }
+  return results
+}
+&nbsp;
+/**
+ * Find Files that match wildcards
+ * @param {Object} cfg config
+ * @param {String} pat pattern
+ * @returns {Array} of files found via wildcards | duplicates are removed
+ * @example
+var fsIn = require('fs-inheritance-lib')
+var config = {
+  inheritFrom: ['../parent', '../neighbour', '../../ancestor'],
+  root: 'foo/bar/src',
+  loglevel: []
+}
+var files = [
+  '** /*.js' // i had to put the sapce before the backslash because of jsdoc issues
+]
+var result = fsIn.fsInheritanceLib.findGlobPatterns(config, files[0])
+console.log(result)
+// [
+//  'foo/bar/src/file.js',
+//  'foo/bar/src/file4.js',
+//  '../parent/foo/bar/src/file2.js',
+//  '../neighbour/foo/bar/src/file3.js',
+//  '../../ancestor/foo/bar/src/file1.js',
+//  '../../ancestor/foo/bar/src/sub/sub1.js'
+// ]
+ */
+function findGlobPatterns (cfg, pat) {
+  var result = []
+  var pattern, file
+  var re = new RegExp('(.+?)?(' + cfg.root + ')(/)?')
+&nbsp;
+  for (var i = 0; i &lt; cfg.inheritFrom.length; i++) {
+    if (cfg.getFileByRegEx) {
+      pattern = glob.sync(path.join(cfg.inheritFrom[i], cfg.root, '**/*.*'))
+      pattern = filterRegex(pattern, pat)
+    } else {
+      pattern = glob.sync(path.join(cfg.inheritFrom[i], cfg.root, pat))
+    }
+&nbsp;
+    for (var p = 0; p &lt; pattern.length; p++) {
+      file = pattern[p].replace(re, '')
+      file = findSingleFile(cfg, file)
+      if (cfg.removePatternFromFileName) {
+        file = file.replace(cfg.removePatternFromFileName, c</span>fg.replaceWith ? <span class="branch-0 cbranch-no" title="branch not covered" >cfg.replaceWith : '')
+        file = c</span>fg.replaceAppend ? <span class="branch-0 cbranch-no" title="branch not covered" >file + cfg.replaceAppend : file
+      }
+&nbsp;
+      if (cfg.removePath) {
+        file = file.split('/').pop()
+      }
+      result.push(file)
+    }
+  }
+  return removeDuplicates(result)
+}
+&nbsp;
+/**
+ * @description
+ * Find global paths by widlcards
+ * @param {Object} cfg config
+ * @param {String} pat pattern
+ * @returns {Array} of paths found mathing pattern
+ * @example
+var fsIn = require('fs-inheritance-lib')
+var config = {
+  inheritFrom: ['./', '../parent', '../neighbour', '../../ancestor'],
+  root: 'foo/bar/src',
+  loglevel: []
+}
+var paths = [
+  '*',
+]
+var result = fsIn.fsInheritanceLib.findGlobPatterns(config, paths[0])
+console.log(result)
+// [
+//  'foo/bar/src/foo',
+//  'foo/bar/src/bar',
+//  'foo/bar/src/baz',
+//  '../parent/foo/bar/src/foo',
+//  '../parent/foo/bar/src/bar',
+//  '../parent/foo/bar/src/baz',
+//  '../neighbour/foo/bar/src/foo',
+//  '../neighbour/foo/bar/src/bar',
+//  '../neighbour/foo/bar/src/baz',
+//  '../../ancestor/foo/bar/src/foo',
+//  '../../ancestor/foo/bar/src/bar',
+//  '../../ancestor/foo/bar/src/baz',
+// ]
+ */
+function findGlobPath (cfg, pat) {
+  var results = []
+  var result, pattern
+  for (var i = 0; i &lt; cfg.inheritFrom.length; i++) {
+    pattern = glob.sync(path.join(cfg.inheritFrom[i], cfg.root, pat))
+    for (var p = 0; p &lt; pattern.length; p++) {
+      var fPath = pattern[p].split('/').pop()
+      result = findSinglePath(cfg, fPath)
+      results = results.concat(result)
+    }
+  }
+  return removeDuplicates(results)
+}
+&nbsp;
+/**
+ * @description
+ * remove duplicates in array
+ * @param {Array} arr with duplicates
+ * @returns {Array} without duplicates
+ * @example
+var result = fsInheritanceLib.removeDuplicates(['foo', 'foo', 'bar', 'bar', 'bar', 'baz'])
+console.log(result)
+// ['foo', 'bar', 'baz']
+ */
+function removeDuplicates (arr) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (arr.length &lt;= 1) <span class="cstat-no" title="statement not covered" >r</span>eturn arr
+  var set = new Set(arr)
+  var values = set.values()
+  return Array.from(values)
+}
+&nbsp;
+/**
+ * @description
+ * filter array of strings by matching regex
+ *
+ * @param {Array} arr with matching regex
+ * @param {String} regex  that should be used to filter
+ * @returns {Array} array without matching regex
+ * @example
+var regex = new RegExp('foo', 'g')
+var array = ['foofoo', 'barfoo', 'bar', 'baz']
+var result = fsInheritanceLib.filterRegex()
+console.log(result)
+// ['foofoo', 'barfoo']
+ */
+function filterRegex (arr, regex) {
+  var filtered = arr.filter(function (i) {
+    return regex.test(i)
+  })
+  return filtered
+}
+&nbsp;
+/**
+ * @description
+ * write a file
+ *
+ * @param {any} input string/object/array that should be written
+ * @param {any} name name of the output file (with extension)
+ * @param {any} dest destination of file
+ * @example
+var string = 'someString'
+fsInheritanceLib.writeAssetLibrary(string, 'bar.txt', './')
+// creates ./bar.txt with content 'someString'
+ */
+function writeAssetLibrary (input, name, dest) {
+  var lib = JSON.stringify(input)
+  try {
+    fs.writeFileSync(path.join(dest, name), lib)
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    l</span>og(false, 'error', err)
+  }
+}
+&nbsp;
+/**
+ * @descriptiondescription
+ * Make Library collects files or paths and writes a file
+ * it can also have a callback function which returns the data found
+ *
+ * @param {Object} cfg config
+ * @param {Function} cb  takes optional callback function
+ * @return {Object|Array|Function}
+ * @example
+ var config = {
+  root: 'foo/bar/baz',
+  files: ['foo.js', 'bar.js', 'baz.js'],
+  outputPath: 'bar/foo',
+  outputName: 'baz.json'
+}
+fsInheritanceLib.writeAssetLibrary(config, function(result){
+  console.log('result')
+  // ['./foo/bar/baz/foo.js', './foo/bar/baz/bar.js', './foo/bar/baz/baz.js']
+  // and a file bar/foo/baz.json is created (if the path exists!)
+})
+ */
+function mkLib (cfg, cb) {
+  var result = findFiles(cfg, cfg.files)
+  writeAssetLibrary(result, cfg.outputName, cfg.outputPath)
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (cb) <span class="cstat-no" title="statement not covered" >r</span>eturn cb(result)
+}
+&nbsp;
+/**
+ * @description
+ * small logging utility
+ * @param {Object} cfg module config
+ * @param {String} type log type
+ * @param {String} msg message to be displayed
+ * @example
+ * var config = {loglevel:['error', 'info', 'warn']}
+ * fsInheritanceLib.log(config, 'info', 'heythere')
+ * // logs info heythere
+ */
+function log (cfg, type, msg) {
+  if (cfg.loglevel &amp;&amp; cfg.loglevel.indexOf(type) &gt; -1) {
+    console[type](msg)
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 09 2017 16:53:29 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

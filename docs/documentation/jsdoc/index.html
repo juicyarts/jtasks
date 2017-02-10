@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ComonTasks Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.dark.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">ComonTasks</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="module-clean.html">clean</a></li><li><a href="module-doc.html">doc</a></li><li><a href="module-fInject.html">fInject</a></li><li><a href="module-fsInheritanceLib.html">fsInheritanceLib</a></li><li><a href="module-logger.html">logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="tutorial-strukturelles.html">strukturelles</a></li><li><a href="tutorial-tasks.html">tasks</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><hr>
+<h1>Comon Tasks</h1><p>Dieses Projekt beinhaltet Automatisierungen und Mechanismen um wiederkehrende Aufgaben zu übernehmen und euch Tools anzubieten um eure Workflows zu automatisieren und eure Projekte zu testen.</p>
+<p>Aktuell kann das ganze nur &quot;manuell&quot; aufgesetzt werden aber ich bin parallel dabei auch diesen Schritt über ein Tool in eurer Kommdanozeile zu automatisieren.
+In Zukunft soll dieses Tool für euch auch neue Projekte sofort mit entsprechenden Einstellungen initialisieren können.</p>
+<hr>
+<h2>Installation</h2><p>Um diese Automatisierungen zum laufen zu bekommen benötigt Ihr zu aller erst folgende Dinge:</p>
+<h3>Node und Npm</h3><p>Javascript engine und Paket Management</p>
+<ul>
+<li><a href="https://nodejs.org/en/">node</a><ul>
+<li>server side javascript.</li>
+</ul>
+</li>
+<li><a href="https://www.npmjs.org">npm</a><ul>
+<li>Paketmanager zum Installieren von Abhängigkeiten in der Entwicklungsumgebung</li>
+</ul>
+</li>
+<li>Installation<ul>
+<li><a href="https://changelog.com/install-node-js-with-homebrew-on-os-x/">mac (brew)</a></li>
+<li><a href="http://blog.teamtreehouse.com/install-node-js-npm-windows">windows</a></li>
+<li><a href="https://nodejs.org/en/download/">alternativ</a></li>
+</ul>
+</li>
+</ul>
+<h3>Gulp</h3><p>Node Modul für Automatisierungen
+Diese Pakete müssen Global verfügbar sein</p>
+<ul>
+<li><a href="http://gulpjs.com">gulp</a></li>
+<li>um gulp global zu initialisieren und über die Kommandozeile verfügbar zu machen</li>
+</ul>
+<pre class="prettyprint source lang-bash"><code>$ npm install -g gulp</code></pre><h3>Bower</h3><p>Optional, Externe Dependencies wie Jquery installieren</p>
+<ul>
+<li>Paketmanager zum Installieren von Abhängigkeiten innerhalb der Applikation</li>
+<li><a href="http://bower.io/">bower</a></li>
+</ul>
+<pre class="prettyprint source lang-bash"><code>$ npm install -g bower</code></pre><h3>Abhaengigkeiten initialisieren</h3><p>Sind diese prerequisits installiert ist das initiliaisieren der Umgebung einfach:</p>
+<pre class="prettyprint source lang-bash"><code>$ npm install -g bower</code></pre><hr>
+<h2>Konfiguration</h2><p>Euere Projekt benötigt Ihr einige Dateien um die Automatisierungen zu ermöglichen</p>
+<blockquote>
+<p>Die angeführten Inhalte sind beispielhaft anhand des Projekts 'prj/isdc/v3/default'</p>
+</blockquote>
+<h3>application.conf.js</h3><p>Konfiguration der Tasks. Mindestens diese Angaben, alles weitere folgt unter dem Punkt <a href="#tasks">Tasks</a>.
+Hier können natürlich auch eigene key-value angaben die man benötigt abgelegt werden.</p>
+<pre class="prettyprint source lang-javascript"><code>'use strict'
+var applicationConf = {
+  host: 'http://default.v3.isdc.comon.dev',
+  prefix: 'default',
+  type: 'isdc',
+  tasks : {
+    ...
+  }
+}
+module.exports = applicationConf</code></pre><h3>gulpfile.babel.js</h3><p>Dieses Beispiel zeigt wie die task library 'comon.tasks' eingebunden wird. Falls jemand eine
+eigene Tasks benötigt könnten sie in dieser Datei definiert werden.
+Ausserdem kann hier auch die Library ausgetauscht werden falls man selbst eine bauen möchte.</p>
+<pre class="prettyprint source lang-javascript"><code>// Referenz zur Konfigurationsdatai
+import config from './application.conf'
+
+// Referenz zur Library
+import tasks from '../../../tasks/comon.tasks.js'
+
+// Task Funktion ausführen um Automatisierungen verfügbar zu machen
+tasks(config, __dirname)</code></pre><h3>.bowerrc (optional)</h3><p>Wenn das Projekt Abhängigkeiten zu Libraries wie jquery und co hat sollten diese über bower installiert werden.
+Die Datei .bowerrc definiert wo diese Dateien hingelegt werden.
+Tendenziell dienen diese Dateien zum lokalen testen der Funktionalität und sollten für eine Produktivumgebung nicht genutzt werden.
+Hier sollten die entsprechenden Quellen durch Quellen unter CDN's ersetzt werden.
+Das ganze versuche ich auch noch zu automatisieren.</p>
+<pre class="prettyprint source lang-javascript"><code>{
+  &quot;directory&quot;: &quot;./static/js/lib&quot;
+}</code></pre><hr>
+<h2><a href="tutorial-tasks.html">Weiter gehts mit den Tasks</a></h2><h2>Issues / TODOS</h2><ul>
+<li>Inject , Minify, Test , Lint erweitern, Ververbung besser integrieren</li>
+<li>Css vererbungen funktionieren nicht richtig</li>
+<li>Lösung für Inline Javascript finden</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+	<div class="container"><div class="row"><div class="col-md-12">Bei Fragen huess fragen</div></div></div>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.2</a>
+	
+		on 2016-11-24T19:27:43+01:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+<script>
+	$( function () {
+		$( '#main' ).localScroll( {
+			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
+		} );
+		$( "dt.name" ).each( function () {
+			var $this = $( this ).find("h4");
+			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+			var dt = $(this);
+			var children = dt.next( "dd" );
+
+			dt.prepend( icon ).css( {cursor : "pointer"} );
+			dt.addClass( "member-collapsed" ).addClass( "member" );
+
+
+			children.hide();
+
+			dt.children().on( "click", function () {
+				children = dt.next( "dd" );
+				children.slideToggle( "fast", function () {
+
+					if ( children.is( ":visible" ) ) {
+						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+						dt.addClass( "member-open" ).animate( "member-collapsed" );
+					} else {
+						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
+					}
+				} );
+			} );
+
+		} );
+	} );
+</script>
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

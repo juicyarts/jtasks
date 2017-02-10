@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.28" tests="48" failures="0">
+  <testsuite name="Root Suite" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="The Tegister Tasks function" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.002">
+    <testcase name="The Tegister Tasks function should unflatten the given object" time="0.002" classname="should unflatten the given object">
+    </testcase>
+  </testsuite>
+  <testsuite name="Inject String" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="writeArrayInFile" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="input Array | js" timestamp="2017-02-09T15:53:32" tests="3" failures="0" time="0.01">
+    <testcase name="Inject String writeArrayInFile input Array | js should append" time="0.005" classname="should append">
+    </testcase>
+    <testcase name="Inject String writeArrayInFile input Array | js should prepend" time="0.002" classname="should prepend">
+    </testcase>
+    <testcase name="Inject String writeArrayInFile input Array | js should replace" time="0.003" classname="should replace">
+    </testcase>
+  </testsuite>
+  <testsuite name="input Array | css" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.005">
+    <testcase name="Inject String writeArrayInFile input Array | css should replace" time="0.005" classname="should replace">
+    </testcase>
+  </testsuite>
+  <testsuite name="input Array | mixed" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.002">
+    <testcase name="Inject String writeArrayInFile input Array | mixed should replace" time="0.002" classname="should replace">
+    </testcase>
+  </testsuite>
+  <testsuite name="Inject General" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="checkForErrors" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="input file doesnt exist" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="Inject General checkForErrors input file doesnt exist should return logger error" time="0.001" classname="should return logger error">
+    </testcase>
+  </testsuite>
+  <testsuite name="output path doesnt exist" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.002">
+    <testcase name="Inject General checkForErrors output path doesnt exist should return logger error" time="0.002" classname="should return logger error">
+    </testcase>
+  </testsuite>
+  <testsuite name="types dont match" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.004">
+    <testcase name="Inject General checkForErrors types dont match should return logger error and debug" time="0.004" classname="should return logger error and debug">
+    </testcase>
+  </testsuite>
+  <testsuite name="write" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="empty file" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.002">
+    <testcase name="Inject General write empty file should log error" time="0.002" classname="should log error">
+    </testcase>
+  </testsuite>
+  <testsuite name="inputSelector not found" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.002">
+    <testcase name="Inject General write inputSelector not found should log error" time="0.002" classname="should log error">
+    </testcase>
+  </testsuite>
+  <testsuite name="Inject String" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="writeStringInFile" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="input String | timestamp | multiple" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.003">
+    <testcase name="Inject String writeStringInFile input String | timestamp | multiple should replace" time="0.003" classname="should replace">
+    </testcase>
+  </testsuite>
+  <testsuite name="input String | html tag" timestamp="2017-02-09T15:53:32" tests="3" failures="0" time="0.004">
+    <testcase name="Inject String writeStringInFile input String | html tag should append" time="0.002" classname="should append">
+    </testcase>
+    <testcase name="Inject String writeStringInFile input String | html tag should prepend" time="0.001" classname="should prepend">
+    </testcase>
+    <testcase name="Inject String writeStringInFile input String | html tag should replace" time="0.001" classname="should replace">
+    </testcase>
+  </testsuite>
+  <testsuite name="ff - findFiles" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="from everywhere" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.005">
+    <testcase name="ff - findFiles from everywhere should return files from different origins with matching paths" time="0.005" classname="should return files from different origins with matching paths">
+    </testcase>
+  </testsuite>
+  <testsuite name="from everywhere via wildcard | single wildcard" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.016">
+    <testcase name="ff - findFiles from everywhere via wildcard | single wildcard should return files from different origins with matching paths | from subfolders" time="0.016" classname="should return files from different origins with matching paths | from subfolders">
+    </testcase>
+  </testsuite>
+  <testsuite name="from everywhere via wildcard | multiple wildcards | subfolders in subfolders" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.026">
+    <testcase name="ff - findFiles from everywhere via wildcard | multiple wildcards | subfolders in subfolders should return files from different origins with matching paths from subfolders and their subfolders" time="0.026" classname="should return files from different origins with matching paths from subfolders and their subfolders">
+    </testcase>
+  </testsuite>
+  <testsuite name="from everywhere | removePatternFromFileName " timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.004">
+    <testcase name="ff - findFiles from everywhere | removePatternFromFileName  should return paths with regex removed" time="0.004" classname="should return paths with regex removed">
+    </testcase>
+  </testsuite>
+  <testsuite name="from everywhere via RegEx | removePatternFromFileName" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.011">
+    <testcase name="ff - findFiles from everywhere via RegEx | removePatternFromFileName should return paths with regex removed" time="0.011" classname="should return paths with regex removed">
+    </testcase>
+  </testsuite>
+  <testsuite name="from everywhere via RegEx | removePatternFromFileName | removeDuplicatesByFileName" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.018">
+    <testcase name="ff - findFiles from everywhere via RegEx | removePatternFromFileName | removeDuplicatesByFileName should return paths with regex removed" time="0.018" classname="should return paths with regex removed">
+    </testcase>
+  </testsuite>
+  <testsuite name="fgp - findGlobalPaths" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="fgp findGlobalPatterns | deep wildcard" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.015">
+    <testcase name="fgp - findGlobalPaths fgp findGlobalPatterns | deep wildcard should return array of files without doubles | deep" time="0.015" classname="should return array of files without doubles | deep">
+    </testcase>
+  </testsuite>
+  <testsuite name="fgp findGlobalPatterns | flat wildcard" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.007">
+    <testcase name="fgp - findGlobalPaths fgp findGlobalPatterns | flat wildcard should return array of files without doubles | flat" time="0.007" classname="should return array of files without doubles | flat">
+    </testcase>
+  </testsuite>
+  <testsuite name="fp - findPaths" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="from everywhere" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.011">
+    <testcase name="fp - findPaths from everywhere should return paths from different origins" time="0.011" classname="should return paths from different origins">
+    </testcase>
+  </testsuite>
+  <testsuite name="from everywhere via wildcard" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.022">
+    <testcase name="fp - findPaths from everywhere via wildcard should return paths from different origins" time="0.022" classname="should return paths from different origins">
+    </testcase>
+  </testsuite>
+  <testsuite name="fsf - findSingleFile" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="if no file given" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="fsf - findSingleFile if no file given should throw Type error" time="0.001" classname="should throw Type error">
+    </testcase>
+  </testsuite>
+  <testsuite name="if file not available" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.004">
+    <testcase name="fsf - findSingleFile if file not available should log File not Exisits" time="0.004" classname="should log File not Exisits">
+    </testcase>
+  </testsuite>
+  <testsuite name="if no inheritFrom given" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0">
+    <testcase name="fsf - findSingleFile if no inheritFrom given should log no inheritance" time="0" classname="should log no inheritance">
+    </testcase>
+  </testsuite>
+  <testsuite name="if local" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0">
+    <testcase name="fsf - findSingleFile if local should return origin &amp; path local" time="0" classname="should return origin &amp; path local">
+    </testcase>
+  </testsuite>
+  <testsuite name="if neighbour" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="fsf - findSingleFile if neighbour should return origin &amp; path neighbour" time="0.001" classname="should return origin &amp; path neighbour">
+    </testcase>
+  </testsuite>
+  <testsuite name="if parent" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.002">
+    <testcase name="fsf - findSingleFile if parent should return origin &amp; path parent" time="0.002" classname="should return origin &amp; path parent">
+    </testcase>
+  </testsuite>
+  <testsuite name="if ancestor" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="fsf - findSingleFile if ancestor should return origin &amp; path ancestor" time="0.001" classname="should return origin &amp; path ancestor">
+    </testcase>
+  </testsuite>
+  <testsuite name="fsp - findSinglePath" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="if path is not given" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="fsp - findSinglePath if path is not given should throw a Type error" time="0.001" classname="should throw a Type error">
+    </testcase>
+  </testsuite>
+  <testsuite name="if Path is not available" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.004">
+    <testcase name="fsp - findSinglePath if Path is not available should return an empty array" time="0.004" classname="should return an empty array">
+    </testcase>
+  </testsuite>
+  <testsuite name="if Path is available in parent only" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.007">
+    <testcase name="fsp - findSinglePath if Path is available in parent only should return array of one file" time="0.007" classname="should return array of one file">
+    </testcase>
+  </testsuite>
+  <testsuite name="if Path is available in parent and neighbour only" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.003">
+    <testcase name="fsp - findSinglePath if Path is available in parent and neighbour only should return array of one file" time="0.003" classname="should return array of one file">
+    </testcase>
+  </testsuite>
+  <testsuite name="if Path is available in parent, neighbour and ancestor" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.003">
+    <testcase name="fsp - findSinglePath if Path is available in parent, neighbour and ancestor should return array of one file" time="0.003" classname="should return array of one file">
+    </testcase>
+  </testsuite>
+  <testsuite name="mkLib - make Library" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="mkLib - make Library" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.06">
+    <testcase name="mkLib - make Library mkLib - make Library should write a file containing input" time="0.06" classname="should write a file containing input">
+    </testcase>
+  </testsuite>
+  <testsuite name="mkLib - make Library | removeDuplicatesByFileName | removePatternFromFileName" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.013">
+    <testcase name="mkLib - make Library mkLib - make Library | removeDuplicatesByFileName | removePatternFromFileName should write a file containing input" time="0.013" classname="should write a file containing input">
+    </testcase>
+  </testsuite>
+  <testsuite name="wal - writeAssetLibrary" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="wal - writeAssetLibrary" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="wal - writeAssetLibrary wal - writeAssetLibrary should write a file containing input" time="0.001" classname="should write a file containing input">
+    </testcase>
+  </testsuite>
+  <testsuite name="jenkinsfile.yml" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="jenkinsfile.yml should be valid" time="0.001" classname="should be valid">
+    </testcase>
+  </testsuite>
+  <testsuite name="logger" timestamp="2017-02-09T15:53:32" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="logger.configure" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="logger logger.configure should set values to logger" time="0.001" classname="should set values to logger">
+    </testcase>
+  </testsuite>
+  <testsuite name="setSelector" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0">
+    <testcase name="logger setSelector should set the selectors that will be show in the log" time="0" classname="should set the selectors that will be show in the log">
+    </testcase>
+  </testsuite>
+  <testsuite name="logger.success" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="logger logger.success should run console.log" time="0.001" classname="should run console.log">
+    </testcase>
+  </testsuite>
+  <testsuite name="logger.info" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="logger logger.info should run console.log" time="0.001" classname="should run console.log">
+    </testcase>
+  </testsuite>
+  <testsuite name="logger.warn" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="logger logger.warn should run console.log" time="0.001" classname="should run console.log">
+    </testcase>
+  </testsuite>
+  <testsuite name="logger.error" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="logger logger.error should run console.log" time="0.001" classname="should run console.log">
+    </testcase>
+  </testsuite>
+  <testsuite name="logger.debug" timestamp="2017-02-09T15:53:32" tests="1" failures="0" time="0.001">
+    <testcase name="logger logger.debug should run console.log" time="0.001" classname="should run console.log">
+    </testcase>
+  </testsuite>
+</testsuites>

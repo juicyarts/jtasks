@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ComonTasks Tutorial: tasks</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.dark.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">ComonTasks</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="module-clean.html">clean</a></li><li><a href="module-doc.html">doc</a></li><li><a href="module-fInject.html">fInject</a></li><li><a href="module-fsInheritanceLib.html">fsInheritanceLib</a></li><li><a href="module-logger.html">logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="tutorial-strukturelles.html">strukturelles</a></li><li><a href="tutorial-tasks.html">tasks</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			<section class="tutorial-section">
+
+<header>
+    
+
+    <h2>tasks</h2>
+</header>
+
+<article>
+    <p>Die folgenden Konfigurationen gehören in das 'tasks' Objekt der application.conf.js</p>
+<hr>
+<!-- TOC depthFrom:1 depthTo:4 orderedList:false withLinks:true -->
+<ul>
+<li><a href="#common">common</a><ul>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#clean">Clean</a></li>
+<li><a href="#doc">Doc</a></li>
+</ul>
+</li>
+<li><a href="#javascript">Javascript</a><ul>
+<li><a href="#lint">lint</a></li>
+<li><a href="#uglify">uglify</a></li>
+<li><a href="#js">js</a></li>
+</ul>
+</li>
+<li><a href="#css">Css</a><ul>
+<li><a href="#process">Process</a></li>
+<li><a href="#lint">Lint</a></li>
+<li><a href="#css">css</a></li>
+</ul>
+</li>
+<li><a href="#test">Test</a><ul>
+<li><a href="#unit">Unit</a></li>
+<li><a href="#e2e">E2E</a></li>
+<li><a href="#mocha">Mocha</a></li>
+</ul>
+</li>
+<li><a href="#comon">Comon</a><ul>
+<li><a href="#server">Server</a></li>
+<li><a href="#inject">Inject</a></li>
+<li><a href="#build">Build</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<hr>
+<h3>common</h3><p><a name="logging"></a></p>
+<h4>Logging</h4><p>Es gibt ein generelles logging Modul welches konfiguriert werden kann um die Tasks zu debuggen.</p>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  log: {
+    selectors: ['isdc', 'default'], // nur für die Anzeige gedacht
+    levels: ['success', 'warn', 'info', 'debug', 'error'] // loglevels
+  }
+}</code></pre><h5>Preview</h5><p><img src="../gfx/logger.png" alt="logger preview"></p>
+<h5><a href="module-logger.html">Api</a></h5><hr>
+<p><a name="clean"></a></p>
+<h4>Clean</h4><p>Dieser Task kann Ordner und Dateien annehmen welche durch Ausführen des Tasks gelöscht/gesäubert werden.
+Der Vorteil, die gelöschten Dateien landen im Papierkorb und können im Notfall von dort wieder hegestellt werden.</p>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  clean: {
+    files: [
+      './static/js/dist/**/*.js',
+      './static/css/dist/**/*.css'
+    ]
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp clean</code></pre><h5>Preview</h5><script type="text/javascript" src="https://asciinema.org/a/4ip9zkk6xm22gvnc1z5hwfvi3.js" id="asciicast-4ip9zkk6xm22gvnc1z5hwfvi3" async></script>
+
+<h5><a href="module-clean.html">Api</a></h5><hr>
+<p><a name="doc"></a></p>
+<h4>Doc</h4><p>Dieser Task kann Dokumentationen aus Jsdoc-Kommentaren eurer Javascript Dateien generieren.
+Diese Dokumentation wurde über diesen Task generiert! ;)
+Siehe <a href="http://usejsdoc.org/">JSDOC</a></p>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  doc: {
+    files: ['README.md', './lib/**/*.js'],
+    options: {
+      opts: {
+        destination: './docs/documentation/jsdoc'
+      }
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp doc</code></pre><h5>Preview</h5><script type="text/javascript" src="https://asciinema.org/a/2nwv9pdksr8onjgalxd3zf4yi.js" id="asciicast-2nwv9pdksr8onjgalxd3zf4yi" async></script>
+
+<h5><a href="module-doc.html">Api</a></h5><hr>
+<p><a name="javascript"></a></p>
+<h3>Javascript</h3><p><a name="lint"></a></p>
+<h4>lint</h4><p>Mit diesem Task werden angegebene js dateien über <a href="http://eslint.org/">eslint</a> und <a href="http://standardjs.com/">standard</a> gelintet</p>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  js: {
+    lint: {
+      files: [
+        'lib/**/*.js',
+        'test/**/*.js'
+      ]
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp lint</code></pre><h5>Preview</h5><script type="text/javascript" src="https://asciinema.org/a/0y0hf7s720o876o8dl132g57s.js" id="asciicast-0y0hf7s720o876o8dl132g57s" async></script>
+
+<hr>
+<p><a name="uglify"></a></p>
+<h4>uglify</h4><p>Mit diesem Task werden angegebene js dateien konkatiniert und über uglifyjs komprimiert. Dazu können logs entfernt werden</p>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  js: {
+    uglify: {
+      outputName: 'default.min.js',
+      outputPath: 'static/js/dist',
+      options: {
+        mangle: false,
+        removeLogs: true
+      },
+      files: [
+        '../default/static/js/src/**/*.js',
+        'static/js/src/**/*.js'
+      ]
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp uglify</code></pre><h5>Preview</h5><script type="text/javascript" src="https://asciinema.org/a/7wwhtzvr5wh88yy31clyggd4h.js" id="asciicast-7wwhtzvr5wh88yy31clyggd4h" async></script>
+
+<hr>
+<p><a name="js"></a></p>
+<h4>js</h4><p>Dieser Task wird automatisch konfiguriert wenn sowohl lint als auch uglify in der Config vorhanden sind.
+Der Task führt die beiden Tasks dann  nacheinander aus.
+Treten im Task <a href="#lint">lint</a> Fehler auf wird der uglify Prozess nicht ausgeführt.</p>
+<h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp js</code></pre><hr>
+<p><a name="css"></a></p>
+<h3>Css</h3><p>Der Css Task übernimmt das kompilieren und linten eurer Sass oder Stylus Dateien.
+Das sind aktuell die möglichen optionen, ich werde das ganze aber noch erweitern bei Bedarf.</p>
+<h4>Process</h4><h5>Config</h5><pre class="prettyprint source lang-javascript"><code>// wenn keine Vererbung stattfinden soll
+tasks: {
+  css: {
+    process:{
+      reprocessor: 'sass',
+      ouputStyle: 'compressed',
+      outputName: 'default.min.css',
+      outputPath: './static/css/dist',
+      files: ['./static/css/src/default.*', './static/css/src/widget.*']
+    }
+  }
+}
+
+// wenn Vererbung integriert werden soll
+tasks: {
+  css: {
+    process:{
+      preprocessor: 'sass', // could also be stylus or less maybe others?
+      inheritance: {
+        inheritFrom: [ './', '../default'],
+        root: 'static/css',
+        paths: [
+          'src'
+        ]
+      },
+      ouputStyle: 'compressed',
+      outputName: 'default.min.css',
+      outputPath: 'static/css/dist',
+      files: ['static/css/src/default.*', 'static/css/src/widget.*']
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp css:process</code></pre><hr>
+<p><a name="lint"></a></p>
+<h4>Lint</h4><h5>Config</h5><pre class="prettyprint source lang-javascript"><code>// wenn keine Vererbung stattfinden soll
+tasks: {
+  css: {
+    lint: {
+      files: ['static/css/src/**/*.s+(a|c)ss', '!static/css/src/**/normalize.s+(a|c)ss']
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp css:lint</code></pre><hr>
+<p><a name="css"></a></p>
+<h4>css</h4><p>Dieser Task wird automatisch konfiguriert wenn sowohl lint als auch process in der Config vorhanden sind.
+Der Task führt die beiden Tasks dann  nacheinander aus.
+Treten im Task <a href="#lint">lint</a> Fehler auf wird der process Prozess nicht ausgeführt.</p>
+<h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp css</code></pre><hr>
+<p><a name="test"></a></p>
+<h3>Test</h3><p>Die Test tasks übernehmen die Ausführung verschiedener Test mechanismen, je nachdem was ihr in eurer Anwendung testen möchtet.</p>
+<p><a name="unit"></a></p>
+<h4>Unit</h4><p>Führt unit Tests über <a href="http://karma-runner.github.io/1.0/index.html">Karma</a> aus. Dieser Task kann für verschiedene Zustände konfiguriert werden.</p>
+<ul>
+<li>Dev<ul>
+<li>Zustand während der Entwicklung</li>
+<li>Jede Js Datei Einzeln</li>
+<li>mit einer Integration zur Testabdeckung und Reporting für den Jenkins</li>
+<li>diese Dateien werden (in diesem Beispiel) unter docs/ abgelegt</li>
+</ul>
+</li>
+<li>Build<ul>
+<li>Zustand nach dem Uglify Prozess</li>
+<li>minify Datei</li>
+<li>kein Reporting, da der reporter hiermit nicht viel anfangen kann </li>
+</ul>
+</li>
+</ul>
+<p>Ausserdem könnt Ihr verschiedene Frameworks damit nutzen. Ich nutze hier in erster Linie Jasmine.
+Vorinstalliert sind:</p>
+<ul>
+<li><a href="https://jasmine.github.io/">jasmine</a></li>
+<li><a href="https://github.com/velesin/jasmine-jquery">jasmine-jquery</a></li>
+<li><a href="https://github.com/JamieMason/Jasmine-Matchers">jasmine-matchers</a></li>
+</ul>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  test: {
+    unit: {
+      dev: {
+        frameworks: ['jasmine-jquery', 'jasmine', 'jasmine-matchers'],
+        files: [
+          './static/js/lib/**/*.js',
+          './static/js/src/**/*.js',
+          './test/unit/**/*.js'
+        ],
+        exclude: [
+          './static/js/lib/jquery/**/*.js'
+        ],
+        preprocessors: {
+          './static/js/src/**/*.js': 'coverage'
+        },
+        coverageReporter: {
+          dir: './docs/coverage'
+        },
+        junitReporter: {
+          outputDir: './docs/junit',
+          outputFile: 'unitReport.xml'
+        }
+      },
+      build: {
+        frameworks: ['jasmine-jquery', 'jasmine', 'jasmine-matchers'],
+        files: [
+          './static/js/lib/**/*.js',
+          './static/js/dist/**/*.js',
+          './test/unit/**/*.js'
+        ],
+        exclude: [
+          './static/js/lib/jquery/**/*.js'
+        ],
+        junitReporter: {
+          outputDir: './docs/junit',
+          outputFile: 'unitReport.xml'
+        }
+      }
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp test:unit:watch // führt den watcher prozess für &quot;dev&quot; aus, der auf Änderungen reagiert
+$ gulp test:unit:run // führt die tests für &quot;dev&quot; ein mal aus
+$ gulp test:unit:build // führt die tests für &quot;build&quot; ein mal aus</code></pre><h5>Preview</h5><script type="text/javascript" src="https://asciinema.org/a/dccnbxf75sxbz0hoiy9fsm9k4.js" id="asciicast-dccnbxf75sxbz0hoiy9fsm9k4" async></script>
+
+<hr>
+<p><a name="e2e"></a></p>
+<h4>E2E</h4><p>Führt End to End Tests aus. Aktuell mit folgenden Frameworks.
+Ich überlege hier noch ob wir selenium und den chromedriver aus den node_modules nehmen und global installieren sollten um die installation kleiner zu halten.
+Dazu gibt es aktuell Probleme mit einigen Frameworks und Firefox, daher ist der Chrome als standard definiert.
+Auch hier versuche ich eine sauberere Lösung zu finden.</p>
+<p>Beispiele für die Tests sind unter 'prj/tsak/test/e2e' zu finden.</p>
+<ul>
+<li><a href="http://www.protractortest.org/">protractor</a></li>
+<li><a href="http://nightwatchjs.org/">nightwatch</a></li>
+<li><a href="http://galenframework.com">galen</a><ul>
+<li>Galen muss händisch für die kommandozeile installiert werden</li>
+<li><a href="http://galenframework.com/docs/getting-started-install-galen/">Hier</a> gehts zur Anleitung </li>
+</ul>
+</li>
+</ul>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  test:{
+    e2e:{
+      protractor: {
+        files: './test/e2e/pro/**/*.js'
+      }
+    },
+    nightwatch:{
+      protractor: {
+        files: './test/e2e/nt/**/*.js'
+      }
+    },
+    galen:{
+      protractor: {
+        files: './test/e2e/galen/**/*.js'
+      }
+    }
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp test:e2e:protractor 
+$ gulp test:e2e:nt 
+$ gulp test:e2e:galen</code></pre><hr>
+<p><a name="mocha"></a></p>
+<h4>Mocha</h4><p>Das <a href="https://mochajs.org/">Mocha</a> Frameowork nutze ich um zb. die Tasks zu testen. 
+Also alles was an Funktionalität innerhalb der Entwicklungsumgebung per Javascript gesteuert wird kann mit Mocha getestet werden.
+Beispiele für die Tests sind unter 'prj/tsak/test/common' zu finden.</p>
+<p>Hier werden für verschiedene Test Arten auch weiter Libraries benötigt.
+vorinstalliert sind:</p>
+<ul>
+<li><a href="http://chaijs.com/">chai</a></li>
+<li><a href="http://sinonjs.org/">sinon</a></li>
+<li><a href="https://github.com/tschaub/mock-fs">mock-fs</a></li>
+</ul>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  test:{
+    mocha:{
+      test: [
+        './test/**/*.js'
+      ],
+      src: [
+        './lib/common/**/*.js'
+      ]
+    }
+  }
+}</code></pre><hr>
+<p><a name="comon"></a></p>
+<h3>Comon</h3><p>Hier nun die Tasks die eher comon spezifisch sind</p>
+<p><a name="server"></a></p>
+<h4>Server</h4><p>Der Server Task startet eine browsersync session welche den in der application.conf.js konfigurierten host über einen Proxy verfügbar macht.
+Dieser Server kann dann auf verschiedene Events reagieren die ihr konfigurieren könnt.</p>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>var applicationConf = {
+  host: 'http://default.v3.isdc.comon.dev', // url die geproxyt werden soll
+  prefix: 'default', // selector der in der Konsole angezeigt wird
+  path: 'de/DE/' // pfad der angehangen werden kann, ich nutze das häufig bei projekten die multi mapping haben
+  tasks:{
+    watcher: {
+      refresh: [
+        './static/css/src/**' // bei Änderungen in angegebenen Pfaden wird ein refresh ausgeführt. Macht hauptsächlich für css Sinn
+      ],
+      reload: [
+        './tmpl/**/*.tmpl', // bei Änderungen in diesen Pfaden wird der browser neu geladen
+        './static/js/**/*.js'
+      ],
+      rebuild: [
+        './application.conf.js' // bei änderungen in diesen Pfaden wird der Inject task neu ausgeführt, Dies werde ich auch noch etwas ausarbeiten 
+      ]
+    }    
+  }
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>// nur der Server watch tasks
+$ gulp server
+// server mit watcher tasks
+$ gulp
+// oder 
+$ gulp default</code></pre><h5>Preview</h5><p><img src="../gfx/bs.png" alt="bs preview"></p>
+<p>Die angegebenen Urls können nun im Browser geöffnet werden.
+Wenn die entsprechenden Tasks konfiguriert sind passieren nun folgende Dinge:</p>
+<ul>
+<li>Änderung an .css/.scss/.styl<ul>
+<li>wenn konfiguriert lint und processing</li>
+<li>*.css Dateien im Browser werden versioniert, kein harter Reload 
+<img src="../gfx/css.png" alt="css preview"></li>
+</ul>
+</li>
+<li>Änderung an .js<ul>
+<li>wenn konfiguriert lint</li>
+<li>browser Reload</li>
+<li>kann hier leider keinen vernünftigen Screenshot anhängen da das linting im default projekt über 2000 warnungen und fehler auswirft</li>
+</ul>
+</li>
+<li>Änderung an .tmpl<ul>
+<li>browser Reload
+<img src="../gfx/tmpl.png" alt="tmpl preview"></li>
+</ul>
+</li>
+<li>Änderung an application.conf.js<ul>
+<li>inject wird neu ausgeführt</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a name="inject"></a></p>
+<h4>Inject</h4><p>Dieser Task sammelt über die angegebenen Pfade alle Dateien die benötigt werden und schreibt ein Template.
+Auch hier gibt es zwei varianten</p>
+<ul>
+<li>Dev<ul>
+<li>Zustand während der Entwicklung</li>
+<li>Jede Js Datei Einzeln</li>
+</ul>
+</li>
+<li>Build<ul>
+<li>Zustand nach dem Uglify Prozess</li>
+<li>minify Datei </li>
+</ul>
+</li>
+</ul>
+<h5>Config</h5><pre class="prettyprint source lang-javascript"><code>tasks: {
+  inject: {
+    outputPath: './tmpl/base',
+    outputName: 'js.tmpl',
+    dev: {
+      root: 'static/js',
+      inheritFrom: ['./'],
+      files: [
+        'lib/jquery/dist/jquery.min.js',
+        'lib/*.js',
+        'src/**/*.js'
+      ]
+    },
+    build: {
+      files: [
+        '{config:project:uri_jquery}',
+        '{static:js:dist/default.min.js}'
+      ]
+    }
+  }    
+}</code></pre><h5>Usage</h5><pre class="prettyprint source lang-bash"><code>// für dev
+$ gulp inject:dev
+// für build
+$ gulp inject:build</code></pre><hr>
+<p><a name="build"></a></p>
+<h4>Build</h4><p>Der Build Task führt diverse tasks aus welche aus dem Entwicklungszustand den Produktivzustand erstellen. </p>
+<ul>
+<li>Task Clean wird ausgeführt um vorherige Build Dateien zu löschen</li>
+<li>Task Js wird ausgeführt um das Javascript zu Linten und Minify'en</li>
+<li>Task Doc wird ausgeführt um eine dokumentation zu erstellen</li>
+<li>Task inject:build wird ausgeführt um die Build Quellen zu integrieren</li>
+<li>Task Test wird ausgeführt | dieser Task ist oeben nicht beschrieben, er führt alle Test Tasks aus die konfiguriert sind</li>
+</ul>
+<p>Dies ist der Task der letzendlich vom Jenkins oder einem anderen Continous Integration/Deployment Tool ausgeführt wird.
+Wirdt dieser Task keine Fehler aus kann die Anwendung entweder händisch oder vom entsprechenden Ci produktiv gestellt werden.</p>
+<h5>Usage</h5><pre class="prettyprint source lang-bash"><code>$ gulp build</code></pre><hr>
+</article>
+
+</section>
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+	<div class="container"><div class="row"><div class="col-md-12">Bei Fragen huess fragen</div></div></div>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.2</a>
+	
+		on 2016-11-24T19:27:43+01:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+<script>
+	$( function () {
+		$( '#main' ).localScroll( {
+			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
+		} );
+		$( "dt.name" ).each( function () {
+			var $this = $( this ).find("h4");
+			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+			var dt = $(this);
+			var children = dt.next( "dd" );
+
+			dt.prepend( icon ).css( {cursor : "pointer"} );
+			dt.addClass( "member-collapsed" ).addClass( "member" );
+
+
+			children.hide();
+
+			dt.children().on( "click", function () {
+				children = dt.next( "dd" );
+				children.slideToggle( "fast", function () {
+
+					if ( children.is( ":visible" ) ) {
+						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+						dt.addClass( "member-open" ).animate( "member-collapsed" );
+					} else {
+						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
+					}
+				} );
+			} );
+
+		} );
+	} );
+</script>
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+@objects
+    wrapper #bg-two
+    frame   #frame
+
+= Basic test =
+    wrapper:
+        contains frame

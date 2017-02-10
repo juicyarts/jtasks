@@ -1,0 +1,32 @@
+{
+  "src_folders": ["test/e2e"],
+  "output_folder": "docs/coverage/e2e",
+
+  "selenium": {
+    "start_process": true,
+    "server_path": "",
+    "log_path": "docs/coverage/e2e",
+    "port": 4444,
+    "cli_args": {
+      "webdriver.chrome.driver": "",
+      "webdriver.gecko.driver": "",
+      "webdriver.edge.driver": ""
+    }
+  },
+  "test_settings": {
+    "default": {
+      "selenium_port": 4444,
+      "selenium_host": "127.0.0.1",
+      "silent": true,
+      "screenshots": {
+        "enabled": false,
+        "path": ""
+      },
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    }
+  }
+}

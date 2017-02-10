@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ComonTasks Tutorial: structure</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.dark.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">ComonTasks</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="module-clean.html">clean</a></li><li><a href="module-doc.html">doc</a></li><li><a href="module-fInject.html">fInject</a></li><li><a href="module-fsInheritanceLib.html">fsInheritanceLib</a></li><li><a href="module-logger.html">logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu inline">
+					<li><a href="tutorial-structure.html">structure</a></li><li><a href="tutorial-tasks.html">tasks</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			<section class="tutorial-section">
+
+<header>
+    
+
+    <h2>structure</h2>
+</header>
+
+<article>
+    <hr>
+<h2>Strukturelles</h2><p>Die folgenden Dinfe sind nicht als Regelwerk wahrzunehmen.
+Es handelt sich lediglich um best practices die ich in den letzten Jahren für mich entwickelt habe um mir die Arbeit zu erleichtern.
+Ausserdem sind diese Dinge teilweise für die Tasks wichtig.</p>
+<h3>README/WIKI</h3><p>Jedes Projekt sollte entweder im Redmine oder im Projekt selbst (was ich für sinnvoller halte) eine Readme enthalten
+welche Projektspezifische Dinge dokumentiert. Es geht dabei nicht um eine Dokumentaion des Codes.
+Eher um eine Projektbeschreibung.
+Dazu kann, wie auch in dieser Readme, der Header mit Badges versehen werden um etwa den zugehörigen Jenkins Job oder die eingesetzten Technologien
+anzuzeigen.</p>
+<h3>Url's/Hostnames</h3><p>Wir sollten unsere Anwendungen lokal alle mit dem selben Hostname mappen.</p>
+<ul>
+<li>vorher<ul>
+<li>*.comon.huessi</li>
+</ul>
+</li>
+<li>nachher<ul>
+<li>*.comon.dev</li>
+</ul>
+</li>
+</ul>
+<p><em>Warum?</em></p>
+<ul>
+<li>So können wir untereinander einfacher Urls austauschen</li>
+<li>Der Browser-Sync Prozess holt sich die Url aus der Application.conf.js des Projekts. Wenn hier jeder seine eigene Url rein basteln muss zum entwickeln kommt es immer wieder zu Konflikten bei git Vorgängen.</li>
+<li>Der Jenkins, unser Continuous Integration Server, welcher für uns Tests ausführt, und in Zukunft vielleicht sogar Builds, kennt diesen Hostname.</li>
+<li>Standartisierung!</li>
+</ul>
+<h3>Projektstrukturen</h3><p>Wir nutzen häufig den selben Ordner für kompilierte und Quell-Dateien.</p>
+<pre class="prettyprint source"><code>+-- static/js/
+    +-- heimspiel.js
+    +-- jquery.min.js
+    +-- modernizer.js
+    +-- einefancyfuktion.js
++-- static/css/
+    +-- heimspiel.sass
+    +-- normalize.css
+    +-- base.scss
+    +-- default.min.css</code></pre><p>Was dazu führt dass Libraries und Arbeitsdateien sich vermischen. Klar spielt das nicht so eine große Rolle, doch zur Trennung von Arbeitsdateien und einfach eingebundenen Libraries ist das nicht dienlich. Ausserdem müssen die Automatisierungen dadurch immer mit exclude filtern versehen werden um zb. 3rd party libraries nicht mit in den Test/Build einzubeziehen.</p>
+<p>Ich würde daher empfehlen euren Static Ordner wie folgt zu strukturieren</p>
+<pre class="prettyprint source"><code>+--- static/js/
+    +--- src/ - Arbeitsdateien/Funktionen und Libraries die ihr erstellt
+    +--- lib/ - 3rd party Libraries
+    +--- dist/ - Ordner der für den/die Builds genutzt wird
++--- static/css/
+    +--- src/
+    +--- dist/</code></pre>
+</article>
+
+</section>
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.2</a>
+	
+		on 2016-11-24T10:56:55+01:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+<script>
+	$( function () {
+		$( '#main' ).localScroll( {
+			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
+		} );
+		$( "dt.name" ).each( function () {
+			var $this = $( this ).find("h4");
+			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+			var dt = $(this);
+			var children = dt.next( "dd" );
+
+			dt.prepend( icon ).css( {cursor : "pointer"} );
+			dt.addClass( "member-collapsed" ).addClass( "member" );
+
+
+			children.hide();
+
+			dt.children().on( "click", function () {
+				children = dt.next( "dd" );
+				children.slideToggle( "fast", function () {
+
+					if ( children.is( ":visible" ) ) {
+						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+						dt.addClass( "member-open" ).animate( "member-collapsed" );
+					} else {
+						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
+					}
+				} );
+			} );
+
+		} );
+	} );
+</script>
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

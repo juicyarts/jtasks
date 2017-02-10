@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for common/fInject.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">common/</a> fInject.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.02% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>73/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.35% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>56/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.96% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>49/57</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">8 statements, 1 function, 13 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as logger from './logger'
+import path from 'path'
+import fs from 'fs'
+&nbsp;
+/**
+ * @module fInject
+ * @description
+ * fInject - FileInjector
+ * This Module allows you to inject content into given templates by setting placeholders that
+ * are then replaced or used to prepend or append the content you pass
+ */
+&nbsp;
+/**
+ * @description
+ * Internal error handler. Checks for errors in given config
+ *
+ * @export
+ * @param {Object} config
+ * @returns {Boolean}
+ */
+export function checkForErrors (config) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!config || !config.inputType || !config.inputFile || !config.inputSelector || !config.input || !config.injectType || !config.outputPath || !config.outputName) {
+<span class="cstat-no" title="statement not covered" >    l</span>ogger.error('Configuration Error!')
+<span class="cstat-no" title="statement not covered" >    l</span>ogger.debug('Following keys are needed', {
+      inputType: 'STRING|NUMBER|ARRAY',
+      inputFile: 'value',
+      intputSelector: 'value',
+      input: 'value',
+      injectType: 'append',
+      outputPath: 'value',
+      outputName: 'value'
+    })
+  }
+  if (!fs.existsSync(config.inputFile)) {
+    logger.error('given inputFile doesnt exist')
+    return true
+  }
+  if (!fs.existsSync(path.join(process.cwd(), config.outputPath))) {
+    logger.error('given outputPath doesnt exist')
+    return true
+  }
+  if (!config.disableTypeCheck &amp;&amp; typeof config.input !== config.inputType) {
+    logger.error('given inputType and input doent match')
+    logger.debug('missmatch', {
+      expectedType: config.inputType,
+      foundType: typeof config.input
+    })
+    return true
+  }
+  return false
+}
+&nbsp;
+/**
+ * @description
+ * The Write function takes a config and a callback function.
+ * It checks the config and runs the inject logic thats needed
+ * @export
+ * @param {Object} config
+ * @param {Function} cb Callback
+ */
+export function write (config, cb) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (checkForErrors(config)) <span class="cstat-no" title="statement not covered" >r</span>eturn
+  var body = fs.readFileSync(config.inputFile).toString()
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (body.indexOf(config.inputSelector) &lt; 0) {
+    logger.error('Selector: ' + config.inputSelector + ' not found in file')
+    return
+  }
+<span class="cstat-no" title="statement not covered" >  if (config.inputType === 'string' || config.inputType === 'integer') {</span>
+<span class="cstat-no" title="statement not covered" >    w</span>riteStringInFile(config, body)
+  } else {
+<span class="cstat-no" title="statement not covered" >    w</span>riteArrayInFile(config, body)
+  }
+<span class="cstat-no" title="statement not covered" >  if (cb) {</span>
+<span class="cstat-no" title="statement not covered" >    c</span>b()
+  }
+}
+&nbsp;
+export function makeRegExFromSelector (selector) {
+  return new RegExp(selector.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&amp;'), 'g')
+}
+&nbsp;
+/**
+ * @description
+ * WriteStringInFile writes a string into a file when given placeholder is found
+ * @export
+ * @param {Object} config
+ * @param {String} body
+ * @param {String} re String or Retular Expression thats used for the inject
+ */
+export function writeStringInFile (config, body) {
+  var re = makeRegExFromSelector(config.inputSelector)
+  if (config.injectType === 'append') {
+    body = body.replace(re, '</span>$&amp;\n' + config.input + (config.newLine ? '\n' : <span class="branch-1 cbranch-no" title="branch not covered" >''))
+  } else if (config.injectType === 'prepend') {
+    body = body.replace(re, c</span>onfig.input + (config.newLine ? '\n$&amp;' : <span class="branch-1 cbranch-no" title="branch not covered" >'$&amp;'))
+  } else {
+    body = body.replace(re, config.input + (config.newLine ? '\n' : ''))
+  }
+  fs.writeFileSync(path.join(process.cwd(), config.outputPath, config.outputName), body)
+}
+&nbsp;
+export function writeArrayInFile (config, body) {
+  var re = makeRegExFromSelector(config.inputSelector)
+  var input = ''
+  for (var i = 0, len = config.input.length; i &lt; len; i++) {
+    input += makeTagFromInput(config, config.input[i]) + '\n'
+  }
+  if (config.injectType === 'append') {
+    body = body.replace(re, '$&amp;' + '\n' + input)
+  } else if (config.injectType === 'prepend') {
+    body = body.replace(re, input + '$&amp;')
+  } else {
+    body = body.replace(re, input)
+  }
+  fs.writeFileSync(path.join(process.cwd(), config.outputPath, config.outputName), body)
+}
+&nbsp;
+export function makeTagFromInput (config, input) {
+  if (input.indexOf('.js') &gt; -1) {
+    return '&lt;script type="text/javascript" src="' + input + '"&gt;&lt;/script&gt;'
+  } else <span class="missing-if-branch" title="else path not taken" >E</span>if (input.indexOf('.css') &gt; -1) {
+    return '&lt;link type="text/css" rel="stylesheet" href="' + input + '"&gt;&lt;/link&gt;'
+  } else {
+<span class="cstat-no" title="statement not covered" >    r</span>eturn '&lt;script type="text/javascript" src="' + input + '"&gt;&lt;/script&gt;'
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 09 2017 16:53:29 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
