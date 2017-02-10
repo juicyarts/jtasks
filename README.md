@@ -1,6 +1,8 @@
+
+[![Build Status](https://codeship.com/projects/83d91880-d1d8-0134-3203-761d9909bfc2/status?branch=master)](https://app.codeship.com/projects/201652)
 ---
 
-# Comon Tasks
+#  Tasks
 Dieses Projekt beinhaltet Automatisierungen und Mechanismen um wiederkehrende Aufgaben zu übernehmen und euch Tools anzubieten um eure Workflows zu automatisieren und eure Projekte zu testen.
 
 Aktuell kann das ganze nur "manuell" aufgesetzt werden aber ich bin parallel dabei auch diesen Schritt über ein Tool in eurer Kommdanozeile zu automatisieren.
@@ -104,8 +106,4 @@ Das ganze versuche ich auch noch zu automatisieren.
 
 ---
 
-## [Weiter gehts mit den Tasks](tutorial-tasks.html)
-
-
-## Issues / TODOS
-* Lösung für Inline Javascript finden
+## [Weiter gehts mit den Tasks](docs/documentation/tutorials/tasks)
